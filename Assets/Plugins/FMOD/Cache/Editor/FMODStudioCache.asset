@@ -1,0 +1,2566 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9165782340920008983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bgm_Lobby/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8876773960444414319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Solitude/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-8672737834715209485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_ProjectPF_MatchPointTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_ProjectPF_MatchPointTheme
+  Guid:
+    Data1: 1309955599
+    Data2: 1129056770
+    Data3: 977445761
+    Data4: -588276004
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -4188467045114702700}
+  - {fileID: 8724553145287108871}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 232097
+--- !u!114 &-8543811163349380580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Pretender/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8041987307204979689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_NewMagicWandRemake/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-8034024199780216729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Solitude
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Solitude
+  Guid:
+    Data1: 430061714
+    Data2: 1117391401
+    Data3: 1184656810
+    Data4: -63253895
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8876773960444414319}
+  - {fileID: -429892671540665193}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 222000
+--- !u!114 &-7965986560755269613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_StandYourGround/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-7885352733814265359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_KetamineRemix
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_KetamineRemix
+  Guid:
+    Data1: -1972943817
+    Data2: 1262712051
+    Data3: 1520281735
+    Data4: 1967460644
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6675176173059825018}
+  - {fileID: 1411429300994357341}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 139539
+--- !u!114 &-7825000878664709707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_BaroqueAttack/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-7815431421357489916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Sfx.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Administrator/Desktop/FMODWORK/Project_Rp_Fmod/Build/Desktop/Sfx.bank
+  Name: Sfx
+  StudioPath: bank:/Sfx
+  lastModified: 638701969864740400
+  FileSizes:
+  - Name: Desktop
+    Value: 626272
+  Exists: 1
+--- !u!114 &-7389287849807726120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Pretender
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Pretender
+  Guid:
+    Data1: 41078893
+    Data2: 1238487873
+    Data3: -2047597438
+    Data4: 402068119
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8543811163349380580}
+  - {fileID: 6908317457016670478}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 167157
+--- !u!114 &-7201769736733282988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_HomixideRemix/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-6850966034633641630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UnUsed/Test
+  m_EditorClassIdentifier: 
+  Path: event:/UnUsed/Test
+  Guid:
+    Data1: 1419783307
+    Data2: 1152305266
+    Data3: -216909124
+    Data4: 1310178846
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -4439671062030505721}
+  - {fileID: 5234876239671308611}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235346
+--- !u!114 &-6806818035218321148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_Stage2Theme/RandomTheme
+  m_EditorClassIdentifier: 
+  Name: RandomTheme
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 148750355
+    data2: 143960258
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-6675176173059825018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_KetamineRemix/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-6477514851923412696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Themes/OST_Namco/Theme_Namco
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Themes/OST_Namco/Theme_Namco
+  Guid:
+    Data1: -1663868474
+    Data2: 1192869047
+    Data3: 1465398148
+    Data4: 1694517190
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5697179308638387236}
+  - {fileID: 4386800804550450640}
+  - {fileID: -202249098914036132}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 230124
+--- !u!114 &-5660033354260293999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_XforDinnerRemix/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5417029895251452077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Original/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-5329721655382060644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_LevelUp
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_LevelUp
+  Guid:
+    Data1: -153643982
+    Data2: 1274425929
+    Data3: -1759251032
+    Data4: 411856726
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1027
+--- !u!114 &-5120390981320708623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Karma
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Karma
+  Guid:
+    Data1: -808501417
+    Data2: 1139706105
+    Data3: -1089123143
+    Data4: -294627701
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -56779078503334136}
+  - {fileID: 5157876819161988338}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 212401
+--- !u!114 &-5073519515265072798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_FindTheFlame
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_FindTheFlame
+  Guid:
+    Data1: 1171442738
+    Data2: 1205070993
+    Data3: 1462201765
+    Data4: -837044665
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -689075154166429745}
+  - {fileID: -1151662337643777642}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 213106
+--- !u!114 &-4634685506116357685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Lobby Themes/OST_Original/Theme_Original
+  m_EditorClassIdentifier: 
+  Path: event:/Lobby Themes/OST_Original/Theme_Original
+  Guid:
+    Data1: 812555590
+    Data2: 1327323044
+    Data3: 407888260
+    Data4: 1642311020
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1785480331675117462}
+  - {fileID: -5417029895251452077}
+  - {fileID: 4782089707459472193}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 224548
+--- !u!114 &-4439671062030505721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Test/EndLobby
+  m_EditorClassIdentifier: 
+  Name: EndLobby
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1756298100
+    data2: 2572929245
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
+--- !u!114 &-4402739067031987192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UnUsed/HomixideTest
+  m_EditorClassIdentifier: 
+  Path: event:/UnUsed/HomixideTest
+  Guid:
+    Data1: 1397464763
+    Data2: 1328618235
+    Data3: 925151374
+    Data4: -1559989535
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 155115
+--- !u!114 &-4188467045114702700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_MatchPointTheme/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3980100296818091313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bgm_Lobby_2/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3812897266359868409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_BaileDeBatalla/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-3711493940181627110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_Login
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_Login
+  Guid:
+    Data1: -1892573283
+    Data2: 1133790560
+    Data3: -1459719763
+    Data4: -294972833
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1944
+--- !u!114 &-3499971828822200746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_RedTheme/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3422162776627046682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_LevelFill
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_LevelFill
+  Guid:
+    Data1: -804517377
+    Data2: 1245765307
+    Data3: -527337322
+    Data4: -138474610
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2666
+--- !u!114 &-3294804854716410935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bgm_Lobby_2/EndLobby
+  m_EditorClassIdentifier: 
+  Name: EndLobby
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1756298100
+    data2: 2572929245
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
+--- !u!114 &-3082778172231206374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_StandYourGround
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_StandYourGround
+  Guid:
+    Data1: -1124146281
+    Data2: 1230809466
+    Data3: 1174571669
+    Data4: -1766224362
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -7965986560755269613}
+  - {fileID: 5433042580698906680}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 209528
+--- !u!114 &-1946865857568588180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_XforDinnerRemix
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_XforDinnerRemix
+  Guid:
+    Data1: 1679941610
+    Data2: 1114664516
+    Data3: -267765576
+    Data4: -1809158099
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 7131530846752496109}
+  - {fileID: -5660033354260293999}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 166226
+--- !u!114 &-1926947741060112863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_Looping/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-1785480331675117462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Original/RandomTheme
+  m_EditorClassIdentifier: 
+  Name: RandomTheme
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 148750355
+    data2: 143960258
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-1151662337643777642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_FindTheFlame/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-968481909154674631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_RedTheme/RandomTheme
+  m_EditorClassIdentifier: 
+  Name: RandomTheme
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 148750355
+    data2: 143960258
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-689075154166429745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_FindTheFlame/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-429892671540665193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Solitude/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-387026563148048359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bgm_Lobby/EndLobby
+  m_EditorClassIdentifier: 
+  Name: EndLobby
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1756298100
+    data2: 2572929245
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
+--- !u!114 &-243519314075659442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Administrator/Desktop/FMODWORK/Project_Rp_Fmod/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638706760943744701
+  FileSizes:
+  - Name: Desktop
+    Value: 2838
+  Exists: 1
+--- !u!114 &-215737210924508583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UnUsed/Bgm_Arr
+  m_EditorClassIdentifier: 
+  Path: event:/UnUsed/Bgm_Arr
+  Guid:
+    Data1: 347453567
+    Data2: 1176796468
+    Data3: 934040197
+    Data4: -2063922694
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 232097
+--- !u!114 &-202249098914036132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Namco/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-112264809189906637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_MehRemix/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &-56779078503334136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Karma/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: -243519314075659442}
+  - {fileID: 452250291806047875}
+  - {fileID: 2196996658685108783}
+  - {fileID: -7815431421357489916}
+  EditorEvents:
+  - {fileID: 2633213142628379944}
+  - {fileID: -8672737834715209485}
+  - {fileID: 1287147852051220555}
+  - {fileID: 596886007975344274}
+  - {fileID: -5073519515265072798}
+  - {fileID: -7885352733814265359}
+  - {fileID: 274070302371845609}
+  - {fileID: 3349538341494846875}
+  - {fileID: -4634685506116357685}
+  - {fileID: -5120390981320708623}
+  - {fileID: 2290677536228695334}
+  - {fileID: 5305660148524568192}
+  - {fileID: -7389287849807726120}
+  - {fileID: -215737210924508583}
+  - {fileID: 2156623441805050286}
+  - {fileID: 2196263815520822640}
+  - {fileID: -6850966034633641630}
+  - {fileID: -8034024199780216729}
+  - {fileID: -3082778172231206374}
+  - {fileID: 7698842052320326302}
+  - {fileID: 7795210772751238324}
+  - {fileID: -6477514851923412696}
+  - {fileID: 2136870067206152082}
+  - {fileID: 6429170570433931805}
+  - {fileID: -1946865857568588180}
+  - {fileID: 151265549185343707}
+  - {fileID: -5329721655382060644}
+  - {fileID: 2395999760783615732}
+  - {fileID: 1456881938554299549}
+  - {fileID: 2848176883948141583}
+  - {fileID: -3711493940181627110}
+  - {fileID: 812492666319137281}
+  - {fileID: 5039491876363625380}
+  - {fileID: 8299631754822859275}
+  - {fileID: -3422162776627046682}
+  - {fileID: -4402739067031987192}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 2196996658685108783}
+  StringsBanks:
+  - {fileID: -243519314075659442}
+  cacheTime: 638706760943744701
+  cacheVersion: 131618
+--- !u!114 &151265549185343707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UnUsed/Bgm_Lobby
+  m_EditorClassIdentifier: 
+  Path: event:/UnUsed/Bgm_Lobby
+  Guid:
+    Data1: -1996601605
+    Data2: 1176958606
+    Data3: -1442191479
+    Data4: -1157349735
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -387026563148048359}
+  - {fileID: -9165782340920008983}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235346
+--- !u!114 &174192289508855396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Sparking/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &274070302371845609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UnUsed/Bgm_Lobby_2
+  m_EditorClassIdentifier: 
+  Path: event:/UnUsed/Bgm_Lobby_2
+  Guid:
+    Data1: -75694014
+    Data2: 1197142487
+    Data3: -1143570272
+    Data4: 357604156
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3980100296818091313}
+  - {fileID: -3294804854716410935}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 224548
+--- !u!114 &452250291806047875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Bgm.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Administrator/Desktop/FMODWORK/Project_Rp_Fmod/Build/Desktop/Bgm.bank
+  Name: Bgm
+  StudioPath: bank:/Bgm
+  lastModified: 638706760943644550
+  FileSizes:
+  - Name: Desktop
+    Value: 58530464
+  Exists: 1
+--- !u!114 &596886007975344274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_ProjectPF_RedTheme
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_ProjectPF_RedTheme
+  Guid:
+    Data1: 1392480532
+    Data2: 1084571965
+    Data3: 1611205550
+    Data4: -1391318133
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3499971828822200746}
+  - {fileID: -968481909154674631}
+  - {fileID: 1657401349149206298}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 232097
+--- !u!114 &812492666319137281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_OpenWindow
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_OpenWindow
+  Guid:
+    Data1: 2084222122
+    Data2: 1334178805
+    Data3: 169571252
+    Data4: -335629760
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1180
+--- !u!114 &1287147852051220555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_HomixideRemix
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_HomixideRemix
+  Guid:
+    Data1: 869743379
+    Data2: 1101916596
+    Data3: -492609125
+    Data4: 602809347
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2598949187768958299}
+  - {fileID: -7201769736733282988}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 155115
+--- !u!114 &1358409953276481117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Atrocity/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1411429300994357341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_KetamineRemix/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &1456881938554299549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_Selection
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_Selection
+  Guid:
+    Data1: -343938749
+    Data2: 1228609465
+    Data3: 1320311941
+    Data4: 901580482
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 187
+--- !u!114 &1657401349149206298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_RedTheme/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &1808884856278970483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_Stage2Theme/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &1973596483258912435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_Looping/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &2093239819779812358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_MehRemix/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2136870067206152082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Sparking
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Sparking
+  Guid:
+    Data1: 748200929
+    Data2: 1273995864
+    Data3: -986660955
+    Data4: 136364542
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8527639620342944194}
+  - {fileID: 174192289508855396}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 108100
+--- !u!114 &2156623441805050286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_BaroqueAttack
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_BaroqueAttack
+  Guid:
+    Data1: -1429912953
+    Data2: 1218157330
+    Data3: -820150382
+    Data4: 508475665
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8805491781404592039}
+  - {fileID: -7825000878664709707}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 197773
+--- !u!114 &2196263815520822640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_BaileDeBatalla
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_BaileDeBatalla
+  Guid:
+    Data1: 1138846602
+    Data2: 1185966388
+    Data3: 1402509201
+    Data4: -1772015901
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3812897266359868409}
+  - {fileID: 9205482954698286210}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 287973
+--- !u!114 &2196996658685108783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: C:/Users/Administrator/Desktop/FMODWORK/Project_Rp_Fmod/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638706760943734659
+  FileSizes:
+  - Name: Desktop
+    Value: 1036
+  Exists: 1
+--- !u!114 &2290677536228695334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_ProjectPF_Stage2Theme
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_ProjectPF_Stage2Theme
+  Guid:
+    Data1: 1463424088
+    Data2: 1289154061
+    Data3: -1645426246
+    Data4: 1948404876
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -6806818035218321148}
+  - {fileID: 1808884856278970483}
+  - {fileID: 5199617278461190604}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 180000
+--- !u!114 &2395999760783615732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_GameResult
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_GameResult
+  Guid:
+    Data1: -403033280
+    Data2: 1209901322
+    Data3: -2138334029
+    Data4: -2062244890
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 8727131851272295446}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9333
+--- !u!114 &2598949187768958299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_HomixideRemix/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &2633213142628379944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_NewMagicWandRemake
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_NewMagicWandRemake
+  Guid:
+    Data1: 1672434181
+    Data2: 1158114757
+    Data3: 2119670699
+    Data4: 1260160580
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 8001556878763691305}
+  - {fileID: -8041987307204979689}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 201174
+--- !u!114 &2848176883948141583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_GetRewards
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_GetRewards
+  Guid:
+    Data1: 323739995
+    Data2: 1283302016
+    Data3: -1425047150
+    Data4: -422412498
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3214
+--- !u!114 &3250543464351954762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Inari/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3349538341494846875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Inari
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Inari
+  Guid:
+    Data1: -1003970235
+    Data2: 1150180522
+    Data3: -1138634331
+    Data4: -823993277
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 3250543464351954762}
+  - {fileID: 3890325803449079410}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 215222
+--- !u!114 &3890325803449079410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Inari/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &4307691130302150713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_NewTankRemix/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &4386800804550450640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Namco/RandomTheme
+  m_EditorClassIdentifier: 
+  Name: RandomTheme
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 1
+  ID:
+    data1: 148750355
+    data2: 143960258
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &4782089707459472193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Original/EndLobby
+  m_EditorClassIdentifier: 
+  Name: EndLobby
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1756298100
+    data2: 2572929245
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
+--- !u!114 &5039491876363625380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_Select
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_Select
+  Guid:
+    Data1: -1769822006
+    Data2: 1286815482
+    Data3: 1889241521
+    Data4: 954820482
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1395
+--- !u!114 &5157876819161988338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Karma/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &5199617278461190604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_Stage2Theme/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &5234876239671308611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Test/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &5305660148524568192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_NewTankRemix
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_NewTankRemix
+  Guid:
+    Data1: 1840237676
+    Data2: 1130486894
+    Data3: 707059625
+    Data4: 154243184
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5434111175133683244}
+  - {fileID: 4307691130302150713}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 166226
+--- !u!114 &5433042580698906680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_StandYourGround/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &5434111175133683244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_NewTankRemix/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &5511841763000447216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Atrocity/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &5697179308638387236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Theme_Namco/EndLobby
+  m_EditorClassIdentifier: 
+  Name: EndLobby
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1756298100
+    data2: 2572929245
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Value A
+  - Value B
+  Exists: 1
+--- !u!114 &6429170570433931805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Namco Ingame PlayTheme/Namco_Atrocity
+  m_EditorClassIdentifier: 
+  Path: event:/Namco Ingame PlayTheme/Namco_Atrocity
+  Guid:
+    Data1: 1385049062
+    Data2: 1111682874
+    Data3: 1903774140
+    Data4: 1986794548
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 5511841763000447216}
+  - {fileID: 1358409953276481117}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 217312
+--- !u!114 &6908317457016670478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Pretender/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &7131530846752496109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_XforDinnerRemix/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &7698842052320326302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_Looping
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_Looping
+  Guid:
+    Data1: -1067404120
+    Data2: 1227307741
+    Data3: -1895639881
+    Data4: -921811087
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1973596483258912435}
+  - {fileID: -1926947741060112863}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 169846
+--- !u!114 &7795210772751238324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Original Ingame PlayTheme/Militia_MehRemix
+  m_EditorClassIdentifier: 
+  Path: event:/Original Ingame PlayTheme/Militia_MehRemix
+  Guid:
+    Data1: -1800063817
+    Data2: 1281464256
+    Data3: 873409923
+    Data4: -157554883
+  Banks:
+  - {fileID: 452250291806047875}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -112264809189906637}
+  - {fileID: 2093239819779812358}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 170945
+--- !u!114 &8001556878763691305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_NewMagicWandRemake/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &8299631754822859275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Total SFX/SFX_Unable
+  m_EditorClassIdentifier: 
+  Path: event:/Total SFX/SFX_Unable
+  Guid:
+    Data1: -693571376
+    Data2: 1114221184
+    Data3: -898262849
+    Data4: 1327777966
+  Banks:
+  - {fileID: -7815431421357489916}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2666
+--- !u!114 &8527639620342944194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_Sparking/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &8724553145287108871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Militia_ProjectPF_MatchPointTheme/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &8727131851272295446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_GameResult/ResultTier
+  m_EditorClassIdentifier: 
+  Name: ResultTier
+  StudioPath: 
+  Min: 0
+  Max: 5
+  Default: 4
+  ID:
+    data1: 2356066824
+    data2: 2426174902
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - S
+  - A
+  - B
+  - C
+  - D
+  - Fail
+  Exists: 1
+--- !u!114 &8805491781404592039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_BaroqueAttack/Type Checker
+  m_EditorClassIdentifier: 
+  Name: Type Checker
+  StudioPath: 
+  Min: 0
+  Max: 2
+  Default: 0
+  ID:
+    data1: 902550095
+    data2: 509272494
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Collection Scene
+  - Ingame Scene
+  - Spare
+  Exists: 1
+--- !u!114 &9205482954698286210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Namco_BaileDeBatalla/AnyUIOpen
+  m_EditorClassIdentifier: 
+  Name: AnyUIOpen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 618523288
+    data2: 2589218999
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
