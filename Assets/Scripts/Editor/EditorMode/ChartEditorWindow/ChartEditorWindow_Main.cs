@@ -44,7 +44,96 @@ public partial class ChartEditorWindow : EditorWindow
     private float detailZoneCenter = 0.5f;  
     private bool isDraggingDetailZone = false;
     private float dragDetailZoneOffset = 0f;
+    
+//    private bool showGrid = true;
+  //  private bool showBeatNumbers = true;
+    private NoteResolution currentResolution = NoteResolution.Sixteenth;
+    private Color gridColorMeasure = new Color(1, 1, 1, 1f);
+    private Color gridColorBeat = new Color(1, 1, 1, 0.5f);
+    private Color gridColorTick = new Color(1, 1, 1, 0.2f);
 
+    private struct EditorUIState
+    {
+        public bool showGrid;
+        public bool showBeatNumbers;
+        public NoteResolution resolution;
+        public float waveformZoomX;
+        public float waveformZoomY;
+        public bool useBpmTimeline;
+        public bool enableNotePlacement;
+    }
+    
+    private EditorUIState uiState = new EditorUIState
+    {
+        showGrid = true,
+        showBeatNumbers = true,
+        resolution = NoteResolution.Sixteenth,
+        waveformZoomX = 10f,
+        waveformZoomY = 1.5f,
+        useBpmTimeline = true,
+        enableNotePlacement = false
+    };
+    
+    public enum NoteResolution
+    {
+        Quarter = 4,
+        Eighth = 8,
+        Sixteenth = 16,
+        ThirtySecond = 32
+    }
+
+    private void DrawBeatGrid(Rect rect, float totalTime)
+    {
+        if (!chartDataAsset) return;
+        var bpmData = chartDataAsset.chartData.bpmData;
+        
+        // 마디선 그리기
+        for (int measure = 0; measure <= totalTime; measure++)
+        {
+            var pos = new BeatPosition(measure, 0, 0);
+            float timeRatio = BeatTimeConverter.ConvertBeatToSeconds(pos, bpmData.bpmChanges) / totalTime;
+            float xPos = rect.xMin + (rect.width * timeRatio);
+            
+            Handles.color = Color.white;
+            Handles.DrawLine(new Vector3(xPos, rect.yMin, 0), new Vector3(xPos, rect.yMax, 0));
+        }
+        
+        // 비트선 그리기
+        Handles.color = new Color(1, 1, 1, 0.5f);
+        for (int measure = 0; measure <= totalTime; measure++)
+        {
+            for (int beat = 1; beat < BEATS_PER_MEASURE; beat++)
+            {
+                var pos = new BeatPosition(measure, beat, 0);
+                float timeRatio = BeatTimeConverter.ConvertBeatToSeconds(pos, bpmData.bpmChanges) / totalTime;
+                float xPos = rect.xMin + (rect.width * timeRatio);
+                
+                Handles.DrawLine(new Vector3(xPos, rect.yMin, 0), new Vector3(xPos, rect.yMax, 0));
+            }
+        }
+        
+        // 틱선 그리기 (현재 해상도에 따라)
+        if (currentResolution >= NoteResolution.Sixteenth)
+        {
+            Handles.color = new Color(1, 1, 1, 0.2f);
+            for (int measure = 0; measure <= totalTime; measure++)
+            {
+                for (int beat = 0; beat < BEATS_PER_MEASURE; beat++)
+                {
+                    for (int tick = 1; tick < TICKS_PER_BEAT; tick++)
+                    {
+                        var pos = new BeatPosition(measure, beat, tick);
+                        float timeRatio = BeatTimeConverter.ConvertBeatToSeconds(pos, bpmData.bpmChanges) / totalTime;
+                        float xPos = rect.xMin + (rect.width * timeRatio);
+                        
+                        Handles.DrawLine(new Vector3(xPos, rect.yMin, 0), new Vector3(xPos, rect.yMax, 0));
+                    }
+                }
+            }
+        }
+    }
+    
+    
     // ─────────────────────────────────────
     // Menu (기존 동일)
     // ─────────────────────────────────────
@@ -73,56 +162,148 @@ public partial class ChartEditorWindow : EditorWindow
         }
     }
 
-    private void OnDisable()
+    private void DrawEditorToolbar()
     {
-        // EditorAudioPlayer.StopAllClips();
-    }
-
-    private void OnGUI()
-    {
-        mainWindowScrollPos = EditorGUILayout.BeginScrollView(mainWindowScrollPos);
-
-        if (!chartDataAsset)
+        EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
+    
+        // 왼쪽 그룹: 보기 옵션
         {
-            EditorGUILayout.HelpBox("No ChartDataAsset found. Using temporary in-memory asset.", MessageType.Warning);
+            uiState.showGrid = GUILayout.Toggle(uiState.showGrid, "Grid", EditorStyles.toolbarButton);
+            uiState.showBeatNumbers = GUILayout.Toggle(uiState.showBeatNumbers, "Beat Numbers", EditorStyles.toolbarButton);
+            GUILayout.Space(10);
         }
 
-        EditorGUILayout.Space();
-        EditorGUILayout.BeginVertical("box");
+        // 중앙 그룹: 노트 편집 옵션
         {
-            // 난이도 섹션
-            DrawKeyAndDifficultySection(); 
-            // 오디오 섹션
-            DrawAudioSection();
+            // toolbarLabel 대신 miniLabel 사용
+            GUILayout.Label("Resolution:", EditorStyles.miniLabel, GUILayout.ExpandWidth(false));
+            string[] resOptions = { "1/4", "1/8", "1/16", "1/32" };
+            int resIndex = ((int)uiState.resolution / 4) - 1;
+            int newResIndex = EditorGUILayout.Popup(resIndex, resOptions, EditorStyles.toolbarPopup, GUILayout.Width(50));
+            uiState.resolution = (NoteResolution)((newResIndex + 1) * 4);
+
+            GUILayout.Space(10);
+            /*
+            uiState.enableNotePlacement = GUILayout.Toggle(uiState.enableNotePlacement, 
+                "Place Notes", EditorStyles.toolbarButton);
+            */
+            
+            enableNotePlacement = GUILayout.Toggle(enableNotePlacement, 
+                "Place Notes", EditorStyles.toolbarButton);
         }
-        EditorGUILayout.EndVertical();
 
-        EditorGUILayout.Space();
-        EditorGUILayout.BeginVertical("box");
+        // 오른쪽 그룹: 줌 컨트롤
         {
-            // BPM 섹션
-            DrawBpmSection();
-        }
-        EditorGUILayout.EndVertical();
-
-        EditorGUILayout.Space();
-        // Export/Import 섹션
-        DrawExportImport();
-
-        EditorGUILayout.Space();
-        // 파형 미리보기
-        DrawWavePreview();
-
-        EditorGUILayout.EndScrollView();
-
-        // Repaint 로직
-        if (Application.isPlaying)
-        {
-            if (RuntimeAudioController.instance && 
-                (RuntimeAudioController.instance.IsPlaying() || RuntimeAudioController.instance.IsPaused()))
+            GUILayout.FlexibleSpace();
+            // toolbarLabel 대신 miniLabel 사용
+            GUILayout.Label("Zoom:", EditorStyles.miniLabel, GUILayout.ExpandWidth(false));
+        
+            float newZoomX = EditorGUILayout.Slider(uiState.waveformZoomX, 1f, 100f, 
+                GUILayout.Width(100));
+            if (newZoomX != uiState.waveformZoomX)
             {
+                uiState.waveformZoomX = newZoomX;
                 Repaint();
             }
         }
+
+        EditorGUILayout.EndHorizontal();
+    }
+
+    private void DrawMainContent()
+    {
+        // 메인 컨텐츠 영역
+        EditorGUILayout.BeginVertical();
+        {
+
+            /*
+            // 차트 데이터 에셋 필드
+            EditorGUI.BeginChangeCheck();
+            chartDataAsset = (ChartDataAsset)EditorGUILayout.ObjectField(
+                "Chart Data", chartDataAsset, typeof(ChartDataAsset), false);
+            if (EditorGUI.EndChangeCheck() && chartDataAsset != null)
+            {
+                OnChartDataAssetChanged();
+            }
+            */
+
+            // 섹션들을 박스로 구분
+            EditorGUILayout.BeginVertical("box");
+            {
+                DrawKeyAndDifficultySection();
+                DrawAudioSection();
+                DrawBpmSection();
+            }
+            EditorGUILayout.EndVertical();
+     
+            EditorGUILayout.Space();
+            if (waveClip != null)
+            {
+                DrawEditorToolbar();
+                DrawWavePreview();      
+            }
+            
+            EditorGUILayout.Space();
+            DrawExportImport();
+        }
+        EditorGUILayout.EndVertical();
+    }
+    
+    
+
+    private void OnGUI()
+    {
+        // 스크롤 뷰 시작
+        mainWindowScrollPos = EditorGUILayout.BeginScrollView(mainWindowScrollPos);
+        {
+            DrawMainContent();
+        }
+        EditorGUILayout.EndScrollView();
+
+        // 재생 중일 때 리페인트
+        if (Application.isPlaying && RuntimeAudioController.instance && 
+            (RuntimeAudioController.instance.IsPlaying() || RuntimeAudioController.instance.IsPaused()))
+        {
+            Repaint();
+        }
+    }
+    
+    private void OnChartDataAssetChanged()
+    {
+        // 차트 데이터 에셋이 변경되었을 때의 처리
+        if (chartDataAsset != null)
+        {
+            selectedDiffIndex = 0;
+            EditorUtility.SetDirty(chartDataAsset);
+        }
+    }
+    
+    // ChartDataAsset 접근자 추가
+    public ChartDataAsset GetChartDataAsset()
+    {
+        return chartDataAsset;
+    }
+
+    // 선택된 난이도 인덱스 접근자 추가
+    public int GetSelectedDifficultyIndex()
+    {
+        return selectedDiffIndex;
+    }
+
+    // 선택된 난이도 설정자 추가 (필요할 경우)
+    public void SetSelectedDifficultyIndex(int index)
+    {
+        if (chartDataAsset != null && 
+            chartDataAsset.chartData.difficulties.Count > index && 
+            index >= 0)
+        {
+            selectedDiffIndex = index;
+            Repaint();
+        }
+    }
+    
+    public AudioClip GetCurrentAudioClip()
+    {
+        return waveClip; // ChartEditorWindow에서 사용 중인 AudioClip 반환
     }
 }

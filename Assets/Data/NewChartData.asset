@@ -15,5 +15,13 @@ MonoBehaviour:
   chartData:
     keyType: 4
     bpmData:
-      bpmChanges: []
-    difficulties: []
+      bpmChanges:
+      - position:
+          measure: 0
+          beat: 0
+          tick: 0
+        bpm: 190
+        beatsPerMeasure: 1
+    difficulties:
+    - difficultyName: Easy
+      notes: []
