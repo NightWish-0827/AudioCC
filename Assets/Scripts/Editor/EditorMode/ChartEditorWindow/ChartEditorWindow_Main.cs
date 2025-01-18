@@ -216,7 +216,7 @@ public partial class ChartEditorWindow : EditorWindow
         EditorGUILayout.BeginVertical();
         {
 
-            /*
+            
             // 차트 데이터 에셋 필드
             EditorGUI.BeginChangeCheck();
             chartDataAsset = (ChartDataAsset)EditorGUILayout.ObjectField(
@@ -225,7 +225,7 @@ public partial class ChartEditorWindow : EditorWindow
             {
                 OnChartDataAssetChanged();
             }
-            */
+            
 
             // 섹션들을 박스로 구분
             EditorGUILayout.BeginVertical("box");

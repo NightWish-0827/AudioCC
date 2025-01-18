@@ -9,10 +9,11 @@ public partial class NoteArrangeWindow
     private float playbackTime = 0f;
     private double lastPlaybackTime;
     private AudioClip currentMusicClip; // 추가
-    
+
     private void InitializePlayback()
     {
         // RuntimeAudioController가 없다면 경고 표시
+        if (!Application.isPlaying) return; 
         if (RuntimeAudioController.instance == null)
         {
             Debug.LogWarning("RuntimeAudioController가 씬에 없습니다. 오디오 재생이 불가능합니다.");
