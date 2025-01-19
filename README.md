@@ -69,3 +69,5 @@ Zoom 수준에 따른 Static Area가 아닌 사용자의 박자에 따른 커스
 이벤트 호출은 버튜버 업계 종사자 분들이 조금 솔깃할 수도 있겠는데요, 연락 주세요. 언제나 열린 취업 등용문  
 
 ## 채보 에디터가 업데이트 되었습니다
+
+https://soundprogrammer.notion.site/BMJS-177a639f6da180bb894aed7acd59eb88
