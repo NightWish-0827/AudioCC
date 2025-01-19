@@ -24,4 +24,48 @@ MonoBehaviour:
         beatsPerMeasure: 1
     difficulties:
     - difficultyName: Easy
-      notes: []
+      notes:
+      - position:
+          measure: 0
+          beat: 2
+          tick: 0
+        lane: 0
+        noteType: Normal
+        isLong: 1
+        length:
+          measure: 0
+          beat: 1
+          tick: 0
+      - position:
+          measure: 0
+          beat: 3
+          tick: 0
+        lane: 1
+        noteType: Normal
+        isLong: 1
+        length:
+          measure: 0
+          beat: 1
+          tick: 0
+      - position:
+          measure: 1
+          beat: 0
+          tick: 0
+        lane: 2
+        noteType: Normal
+        isLong: 1
+        length:
+          measure: 0
+          beat: 1
+          tick: 0
+      - position:
+          measure: 1
+          beat: 1
+          tick: 0
+        lane: 3
+        noteType: Normal
+        isLong: 1
+        length:
+          measure: 0
+          beat: 1
+          tick: 0
