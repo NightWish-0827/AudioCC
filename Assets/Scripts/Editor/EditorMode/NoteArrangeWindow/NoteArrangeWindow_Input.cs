@@ -42,7 +42,7 @@ public partial class NoteArrangeWindow
                 e.Use();
             }
         }
-        
+
         if (e.control || e.command)
         {
             switch (e.keyCode)
@@ -75,7 +75,7 @@ public partial class NoteArrangeWindow
             isLong = selectedNote.isLong,
             length = selectedNote.length
         });
-        
+
         copyStartPosition = selectedNote.position;
     }
 
@@ -84,7 +84,7 @@ public partial class NoteArrangeWindow
         if (copiedNotes.Count == 0 || chartDataAsset == null) return;
 
         var currentDiff = chartDataAsset.chartData.difficulties[selectedDiffIndex];
-        
+
         Undo.RecordObject(chartDataAsset, "Paste Notes");
 
         // 붙여넣기 위치 계산
@@ -117,29 +117,29 @@ public partial class NoteArrangeWindow
         if (selectedNote == null) return;
 
         CopySelectedNote();
-        
+
         // 현재 선택된 노트의 다음 박자에 붙여넣기
         float currentTime = BeatTimeConverter.ConvertBeatToSeconds(
             selectedNote.position,
             chartDataAsset.chartData.bpmData.bpmChanges
         );
-        
-        float nextBeatTime = currentTime + GetTimePerBeat(currentTime, 
+
+        float nextBeatTime = currentTime + GetTimePerBeat(currentTime,
             chartDataAsset.chartData.bpmData.bpmChanges);
-            
+
         PasteNotes(nextBeatTime);
     }
 
     private void DeleteSelectedNote()
     {
         if (!chartDataAsset || selectedNote == null) return;
-        
+
         var currentDiff = chartDataAsset.chartData.difficulties[selectedDiffIndex];
-        
+
         Undo.RecordObject(chartDataAsset, "Delete Note");
         currentDiff.notes.Remove(selectedNote);
         EditorUtility.SetDirty(chartDataAsset);
-        
+
         selectedNote = null;
     }
 
@@ -147,34 +147,34 @@ public partial class NoteArrangeWindow
     {
         float time = GetTimeFromYPosition(e.mousePosition.y, viewportRect);
         int lane = GetLaneFromXPosition(e.mousePosition.x, viewportRect);
-        
+
         var note = FindNoteAtPosition(time, lane);
-        
+
         GenericMenu menu = new GenericMenu();
-        
+
         if (note != null)
         {
-            menu.AddItem(new GUIContent("Copy"), false, () => 
+            menu.AddItem(new GUIContent("Copy"), false, () =>
             {
                 selectedNote = note;
                 CopySelectedNote();
             });
-            
+
             menu.AddItem(new GUIContent("Duplicate"), false, () =>
             {
                 selectedNote = note;
                 DuplicateSelectedNote();
             });
-            
+
             menu.AddSeparator("");
-            
-            menu.AddItem(new GUIContent("Delete Note"), false, () => 
+
+            menu.AddItem(new GUIContent("Delete Note"), false, () =>
             {
                 selectedNote = note;
                 DeleteSelectedNote();
             });
-            
-            menu.AddItem(new GUIContent("Toggle Long Note"), note.isLong, () => 
+
+            menu.AddItem(new GUIContent("Toggle Long Note"), note.isLong, () =>
             {
                 Undo.RecordObject(chartDataAsset, "Toggle Long Note");
                 note.isLong = !note.isLong;
@@ -188,11 +188,11 @@ public partial class NoteArrangeWindow
             {
                 PasteNotes(time);
             });
-            
+
             menu.AddDisabledItem(new GUIContent("Delete Note"));
             menu.AddDisabledItem(new GUIContent("Toggle Long Note"));
         }
-        
+
         menu.ShowAsContext();
         e.Use();
     }
@@ -203,18 +203,18 @@ public partial class NoteArrangeWindow
         {
             float time = GetTimeFromYPosition(e.mousePosition.y, viewportRect);
             int lane = GetLaneFromXPosition(e.mousePosition.x, viewportRect);
-        
+
             // 기존 노트 선택 확인
             selectedNote = FindNoteAtPosition(time, lane);
-        
+
             if (selectedNote == null && !e.shift) // 새 노트 생성
             {
                 CreateNewNote(time, lane);
             }
-        
+
             isDraggingNote = selectedNote != null;
             isEditingLongNote = e.shift && selectedNote != null;
-        
+
             e.Use();
         }
     }
@@ -225,7 +225,7 @@ public partial class NoteArrangeWindow
         {
             float time = GetTimeFromYPosition(e.mousePosition.y, viewportRect);
             int lane = GetLaneFromXPosition(e.mousePosition.x, viewportRect);
-        
+
             if (isEditingLongNote)
             {
                 UpdateLongNoteLength(time);
@@ -234,7 +234,7 @@ public partial class NoteArrangeWindow
             {
                 UpdateNotePosition(time, lane);
             }
-        
+
             e.Use();
         }
     }
@@ -251,11 +251,11 @@ public partial class NoteArrangeWindow
 
     private NoteData FindNoteAtPosition(float time, int lane)
     {
-        if (!chartDataAsset || chartDataAsset.chartData.difficulties.Count == 0) 
+        if (!chartDataAsset || chartDataAsset.chartData.difficulties.Count == 0)
             return null;
 
         var currentDiff = chartDataAsset.chartData.difficulties[selectedDiffIndex];
-        float tolerance = 0.1f; // 선택 허용 범위 (초)
+        float tolerance = NOTE_CLICK_TOLERANCE / (zoomLevel * 100); // 줌 레벨에 따른 판정 범위 조정
 
         return currentDiff.notes.FirstOrDefault(note =>
         {
@@ -263,25 +263,25 @@ public partial class NoteArrangeWindow
                 note.position,
                 chartDataAsset.chartData.bpmData.bpmChanges
             );
-            
-            return note.lane == lane && 
+
+            return note.lane == lane &&
                    Mathf.Abs(noteTime - time) < tolerance;
         });
     }
 
     private void CreateNewNote(float time, int lane)
     {
-        if (!chartDataAsset || chartDataAsset.chartData.difficulties.Count == 0) 
+        if (!chartDataAsset || chartDataAsset.chartData.difficulties.Count == 0)
             return;
 
         var currentDiff = chartDataAsset.chartData.difficulties[selectedDiffIndex];
         var bpmChanges = chartDataAsset.chartData.bpmData.bpmChanges;
-            
+
         // 스냅 적용
         float snappedTime = SnapTimeToGrid(time);
-            
+
         Undo.RecordObject(chartDataAsset, "Add Note");
-            
+
         var newNote = new NoteData
         {
             position = BeatTimeConverter.ConvertSecondsToBeat(snappedTime, bpmChanges),
@@ -289,7 +289,7 @@ public partial class NoteArrangeWindow
             isLong = false,
             length = new BeatPosition(0, 0, 0)
         };
-            
+
         currentDiff.notes.Add(newNote);
         EditorUtility.SetDirty(chartDataAsset);
     }
@@ -297,43 +297,43 @@ public partial class NoteArrangeWindow
     private void UpdateNotePosition(float time, int lane)
     {
         if (selectedNote == null) return;
-            
+
         // 스냅 적용
         float snappedTime = SnapTimeToGrid(time);
-            
+
         Undo.RecordObject(chartDataAsset, "Move Note");
-            
+
         selectedNote.position = BeatTimeConverter.ConvertSecondsToBeat(
             snappedTime,
             chartDataAsset.chartData.bpmData.bpmChanges
         );
         selectedNote.lane = lane;
-            
+
         EditorUtility.SetDirty(chartDataAsset);
     }
 
     private void UpdateLongNoteLength(float endTime)
     {
         if (selectedNote == null) return;
-            
+
         // 스냅 적용
         float snappedEndTime = SnapTimeToGrid(endTime);
-            
+
         Undo.RecordObject(chartDataAsset, "Edit Long Note");
-            
+
         float startTime = BeatTimeConverter.ConvertBeatToSeconds(
             selectedNote.position,
             chartDataAsset.chartData.bpmData.bpmChanges
         );
-            
+
         BeatPosition endBeat = BeatTimeConverter.ConvertSecondsToBeat(
             snappedEndTime,
             chartDataAsset.chartData.bpmData.bpmChanges
         );
-            
+
         selectedNote.isLong = true;
         selectedNote.length = endBeat - selectedNote.position;
-            
+
         EditorUtility.SetDirty(chartDataAsset);
     }
 }

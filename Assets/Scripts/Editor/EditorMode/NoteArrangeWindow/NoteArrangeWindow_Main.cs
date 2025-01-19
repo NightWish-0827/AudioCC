@@ -21,6 +21,8 @@ public partial class NoteArrangeWindow : EditorWindow
     private float laneHeight = 60f;
     private float noteHeight = 20f;
     private Color[] laneColors;
+    private const float NOTE_HEIGHT = 12f; // 노트 높이를 12픽셀로 조정
+    private const float NOTE_CLICK_TOLERANCE = 8f; // 클릭 판정 범위
 
     // 에디터 상태
     private bool isDraggingNote = false;
