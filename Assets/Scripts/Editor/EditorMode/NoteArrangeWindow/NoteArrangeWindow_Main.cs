@@ -15,6 +15,7 @@ public partial class NoteArrangeWindow : EditorWindow
     private float zoomLevel = 1f;
     private float viewportStartTime = 0;
     private float viewportDuration = 10f; 
+    private float totalHeight; 
 
     // 레인 관련 
     private float laneHeight = 60f;
@@ -71,12 +72,33 @@ public partial class NoteArrangeWindow : EditorWindow
         DrawDifficultySelector();
         DrawViewportControls();
         
-        Rect viewportRect = EditorGUILayout.GetControlRect(GUILayout.ExpandHeight(true));
+        // 스크롤 뷰 시작
+        scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition);
+        
+        // 전체 높이 계산 (곡 길이 기반)
+        if (currentMusicClip != null)
+        {
+            totalHeight = currentMusicClip.length * zoomLevel * 100; // 적절한 스케일 팩터
+        }
+        
+        // 고정된 높이의 컨텐츠 영역
+        Rect viewportRect = EditorGUILayout.GetControlRect(
+            GUILayout.Height(totalHeight)
+        );
+        
+        // 뷰포트 시작/끝 시간 계산 (스크롤 위치 기반)
+        float scrollRatio = scrollPosition.y / totalHeight;
+        viewportStartTime = currentMusicClip ? currentMusicClip.length * scrollRatio : 0f;
+        
+        // 그리드와 마디선은 아래에서 위로 그리도록 수정
         DrawGridAndMeasures(viewportRect);
         DrawLanes(viewportRect);
         DrawNotes(viewportRect);
         HandleInput(viewportRect);
+        
+        EditorGUILayout.EndScrollView();
     }
+
     
     private void DrawDifficultySelector()
     {
@@ -140,57 +162,66 @@ public partial class NoteArrangeWindow : EditorWindow
     }
     
     private void DrawGridAndMeasures(Rect viewportRect)
-    {
-        if (chartDataAsset.chartData.bpmData.bpmChanges.Count == 0) return;
+{
+    if (chartDataAsset == null || chartDataAsset.chartData.bpmData.bpmChanges.Count == 0) return;
 
-        // BPM 기반 그리드 그리기
-        var bpmChanges = chartDataAsset.chartData.bpmData.bpmChanges;
-        float currentTime = viewportStartTime;
+    var bpmChanges = chartDataAsset.chartData.bpmData.bpmChanges;
+    float songLength = currentMusicClip ? currentMusicClip.length : 60f; // 기본값 60초
+
+    // 첫 번째 BPM 값 가져오기
+    float firstBpm = bpmChanges[0].bpm;
+    float secondsPerBeat = 60f / firstBpm;
     
-        while (currentTime <= viewportStartTime + viewportDuration)
+    // 전체 마디 수 계산
+    int totalMeasures = Mathf.CeilToInt(songLength / (secondsPerBeat * BeatPosition.BEATS_PER_MEASURE));
+
+    for (int measure = 0; measure <= totalMeasures; measure++)
+    {
+        // 마디의 시작 시간 계산
+        float measureTime = measure * secondsPerBeat * BeatPosition.BEATS_PER_MEASURE;
+        float yPos = GetYPositionForTime(measureTime, viewportRect);
+
+        // 마디선 그리기
+        DrawMeasureLine(viewportRect, yPos, Color.white);
+        DrawMeasureNumber(viewportRect, yPos, measure);
+
+        // 비트선 그리기
+        for (int beat = 1; beat < BeatPosition.BEATS_PER_MEASURE; beat++)
         {
-            BeatPosition beatPos = BeatTimeConverter.ConvertSecondsToBeat(
-                currentTime, bpmChanges);
-            
-            float yPos = GetYPositionForTime(currentTime, viewportRect);
-        
-            // 마디선
-            if (beatPos.beat == 0 && beatPos.tick == 0)
-            {
-                DrawMeasureLine(viewportRect, yPos, Color.white);
-                DrawMeasureNumber(viewportRect, yPos, beatPos.measure);
-            }
-            // 비트선
-            else if (beatPos.tick == 0)
-            {
-                DrawBeatLine(viewportRect, yPos, new Color(1, 1, 1, 0.5f));
-            }
-        
-            currentTime += GetTimePerBeat(currentTime, bpmChanges);
+            float beatTime = measureTime + (beat * secondsPerBeat);
+            float beatYPos = GetYPositionForTime(beatTime, viewportRect);
+            DrawBeatLine(viewportRect, beatYPos, new Color(1, 1, 1, 0.3f));
         }
     }
+}
     
     private void DrawBeatLine(Rect viewportRect, float yPos, Color color)
-    {
-        Handles.color = color;
-        Handles.DrawLine(
-            new Vector3(viewportRect.x, yPos),
-            new Vector3(viewportRect.xMax, yPos)
-        );
-    }
+{
+    if (yPos < viewportRect.y || yPos > viewportRect.yMax) return;
     
-    // 유틸리티 매서드 
+    Handles.color = color;
+    Handles.DrawLine(
+        new Vector3(viewportRect.x, yPos),
+        new Vector3(viewportRect.xMax, yPos)
+    );
+}
+    
+    // Y 좌표 계산 함수 수정 (하->상 방향)
     private float GetYPositionForTime(float time, Rect viewportRect)
-    {
-        float normalizedTime = (time - viewportStartTime) / viewportDuration;
-        return viewportRect.y + (normalizedTime * viewportRect.height);
-    }
+{
+    if (currentMusicClip == null) return viewportRect.y;
+    
+    float normalizedTime = time / currentMusicClip.length;
+    return Mathf.Lerp(viewportRect.yMax, viewportRect.y, normalizedTime);
+}
 
-    private float GetTimeFromYPosition(float yPos, Rect viewportRect)
-    {
-        float normalizedPos = (yPos - viewportRect.y) / viewportRect.height;
-        return viewportStartTime + (normalizedPos * viewportDuration);
-    }
+ private float GetTimeFromYPosition(float yPos, Rect viewportRect)
+{
+    if (currentMusicClip == null) return 0f;
+    
+    float normalizedPos = Mathf.InverseLerp(viewportRect.yMax, viewportRect.y, yPos);
+    return currentMusicClip.length * normalizedPos;
+}
 
     private int GetLaneFromXPosition(float xPos, Rect viewportRect)
     {
@@ -201,13 +232,15 @@ public partial class NoteArrangeWindow : EditorWindow
     }
     
     private void DrawMeasureLine(Rect viewportRect, float yPos, Color color)
-    {
-        Handles.color = color;
-        Handles.DrawLine(
-            new Vector3(viewportRect.x, yPos),
-            new Vector3(viewportRect.xMax, yPos)
-        );
-    }
+{
+    if (yPos < viewportRect.y || yPos > viewportRect.yMax) return;
+    
+    Handles.color = color;
+    Handles.DrawLine(
+        new Vector3(viewportRect.x, yPos),
+        new Vector3(viewportRect.xMax, yPos)
+    );
+}
 
     private void DrawMeasureNumber(Rect viewportRect, float yPos, int measure)
     {

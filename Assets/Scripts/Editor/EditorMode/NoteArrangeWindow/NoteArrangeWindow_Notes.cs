@@ -20,17 +20,31 @@ public partial class NoteArrangeWindow
         }
     }
 
-    private void DrawNote(Rect viewportRect, NoteData note, float laneWidth)
+  private void DrawNote(Rect viewportRect, NoteData note, float laneWidth)
     {
         float noteTime = BeatTimeConverter.ConvertBeatToSeconds(
             note.position, 
             chartDataAsset.chartData.bpmData.bpmChanges
         );
 
-        if (IsNoteInViewport(noteTime))
+        float yPos = GetYPositionForTime(noteTime, viewportRect);
+        
+        // 뷰포트 범위 체크
+        if (yPos < viewportRect.y - noteHeight || yPos > viewportRect.yMax + noteHeight) 
+            return;
+
+        Rect noteRect = new Rect(
+            viewportRect.x + (note.lane * laneWidth),
+            yPos - (noteHeight * 0.5f),
+            laneWidth,
+            noteHeight
+        );
+
+        DrawNoteGraphic(noteRect, note);
+
+        if (note.isLong)
         {
-            Rect noteRect = CalculateNoteRect(viewportRect, note, noteTime, laneWidth);
-            DrawNoteGraphic(noteRect, note);
+            DrawLongNoteBody(noteRect, note, viewportRect);
         }
     }
 
@@ -52,7 +66,7 @@ public partial class NoteArrangeWindow
         );
     }
 
-    private void DrawNoteGraphic(Rect noteRect, NoteData note)
+      private void DrawNoteGraphic(Rect noteRect, NoteData note)
     {
         Color noteColor = note == selectedNote ? 
             Color.yellow : 
@@ -61,31 +75,35 @@ public partial class NoteArrangeWindow
         EditorGUI.DrawRect(noteRect, new Color(0, 0, 0, 0.5f)); // 그림자
         noteRect.y -= 1; // 약간 위로 올려서 그림자 효과
         EditorGUI.DrawRect(noteRect, noteColor);
-    
-        if (note.isLong)
-        {
-            DrawLongNoteBody(noteRect, note);
-        }
     }
 
-    private void DrawLongNoteBody(Rect noteRect, NoteData note)
+     private void DrawLongNoteBody(Rect noteRect, NoteData note, Rect viewportRect)
     {
         float endTime = BeatTimeConverter.ConvertBeatToSeconds(
             note.position + note.length, 
             chartDataAsset.chartData.bpmData.bpmChanges
         );
-    
-        if (IsNoteInViewport(endTime))
-        {
-            float endY = GetYPositionForTime(endTime, noteRect);
-            Rect bodyRect = new Rect(
-                noteRect.x,
-                noteRect.y,
-                noteRect.width,
-                endY - noteRect.y
-            );
-        
-            EditorGUI.DrawRect(bodyRect, new Color(0, 1, 0, 0.3f));
-        }
+
+        float endY = GetYPositionForTime(endTime, viewportRect);
+
+        // 롱노트 시작점과 끝점이 모두 뷰포트 밖에 있는 경우 체크
+        if ((noteRect.y < viewportRect.y && endY < viewportRect.y) ||
+            (noteRect.y > viewportRect.yMax && endY > viewportRect.yMax))
+            return;
+
+        Rect bodyRect = new Rect(
+            noteRect.x,
+            Mathf.Min(noteRect.y + noteHeight * 0.5f, endY),
+            noteRect.width,
+            Mathf.Abs(noteRect.y + noteHeight * 0.5f - endY)
+        );
+
+        EditorGUI.DrawRect(bodyRect, new Color(0, 1, 0, 0.3f));
+    }
+
+    private bool IsNoteVisible(float noteTime, Rect viewportRect)
+    {
+        float yPos = GetYPositionForTime(noteTime, viewportRect);
+        return yPos >= viewportRect.y - noteHeight && yPos <= viewportRect.yMax + noteHeight;
     }
 }
