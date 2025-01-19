@@ -8,49 +8,84 @@ public partial class NoteArrangeWindow
 {
     private void DrawToolbar()
     {
-        EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
-    
+        EditorGUILayout.BeginHorizontal(EditorStyles.toolbar, GUILayout.ExpandWidth(true));
+
+        // 왼쪽 영역 (30%): ChartDataAsset 필드
+        EditorGUILayout.BeginHorizontal(GUILayout.Width(position.width * 0.3f));
+        EditorGUILayout.LabelField("Chart:", GUILayout.Width(40));
         chartDataAsset = (ChartDataAsset)EditorGUILayout.ObjectField(
-            chartDataAsset, typeof(ChartDataAsset), false, GUILayout.Width(200));
-    
+            chartDataAsset,
+            typeof(ChartDataAsset),
+            false,
+            GUILayout.ExpandWidth(true)
+        );
+        EditorGUILayout.EndHorizontal();
+
+        // 중앙 영역 (40%): 재생 컨트롤
+        EditorGUILayout.BeginHorizontal(GUILayout.Width(position.width * 0.4f));
         GUILayout.FlexibleSpace();
-    
-        // 재생 컨트롤
+
         if (RuntimeAudioController.instance != null)
         {
-            // 재생 속도 조절
-            float currentPitch = RuntimeAudioController.instance.audioSrc.pitch;
-            float newPitch = EditorGUILayout.FloatField("Speed", currentPitch, GUILayout.Width(60));
-            if (newPitch != currentPitch)
+            // 속도 조절
+            using (new EditorGUILayout.HorizontalScope())
             {
-                RuntimeAudioController.instance.SetPitch(newPitch);
+                EditorGUILayout.LabelField("Speed:", GUILayout.Width(45));
+                float currentPitch = RuntimeAudioController.instance.audioSrc.pitch;
+                float newPitch = EditorGUILayout.FloatField(
+                    currentPitch,
+                    GUILayout.Width(35)
+                );
+                if (newPitch != currentPitch)
+                {
+                    RuntimeAudioController.instance.SetPitch(newPitch);
+                }
+                GUILayout.Space(10);
             }
 
-            if (GUILayout.Button(isPlaying ? "■" : "▶", EditorStyles.toolbarButton, GUILayout.Width(30)))
+            // 재생 컨트롤
+            using (new EditorGUILayout.HorizontalScope())
             {
-                if (isPlaying)
-                    StopPlayback();
-                else
-                    StartPlayback();
-            }
-        
-            // 시간 표시
-            EditorGUI.BeginChangeCheck();
-            float newTime = EditorGUILayout.FloatField(playbackTime, GUILayout.Width(50));
-            if (EditorGUI.EndChangeCheck())
-            {
-                SeekPlayback(newTime);
+                // 재생/정지 버튼
+                if (GUILayout.Button(isPlaying ? "■" : "▶", GUILayout.Width(25)))
+                {
+                    if (isPlaying)
+                        StopPlayback();
+                    else
+                        StartPlayback();
+                }
+                GUILayout.Space(10);
+
+                // 시간 표시
+                EditorGUILayout.LabelField("Time:", GUILayout.Width(35));
+                EditorGUI.BeginChangeCheck();
+                float newTime = EditorGUILayout.FloatField(
+                    playbackTime,
+                    GUILayout.Width(50)
+                );
+                if (EditorGUI.EndChangeCheck())
+                {
+                    SeekPlayback(newTime);
+                }
             }
         }
-    
-        if (GUILayout.Button("Sync with Chart Editor", EditorStyles.toolbarButton))
+
+        GUILayout.FlexibleSpace();
+        EditorGUILayout.EndHorizontal();
+
+        // 오른쪽 영역 (30%): 동기화 버튼
+        EditorGUILayout.BeginHorizontal(GUILayout.Width(position.width * 0.3f));
+        GUILayout.FlexibleSpace();
+
+        if (GUILayout.Button("Sync", GUILayout.Width(130)))
         {
             SyncWithChartEditor();
         }
-    
+        GUILayout.Space(10);
+        EditorGUILayout.EndHorizontal();
+
         EditorGUILayout.EndHorizontal();
     }
-
     private void SyncWithChartEditor()
     {
         var chartEditor = EditorWindow.GetWindow<ChartEditorWindow>();

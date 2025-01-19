@@ -13,7 +13,7 @@ public partial class NoteArrangeWindow
     private void InitializePlayback()
     {
         // RuntimeAudioController가 없다면 경고 표시
-        if (!Application.isPlaying) return; 
+        if (!Application.isPlaying) return;
         if (RuntimeAudioController.instance == null)
         {
             Debug.LogWarning("RuntimeAudioController가 씬에 없습니다. 오디오 재생이 불가능합니다.");
@@ -26,50 +26,52 @@ public partial class NoteArrangeWindow
 
         // RuntimeAudioController에서 현재 재생 시간 가져오기
         playbackTime = RuntimeAudioController.instance.GetTime();
-        
+
         // 뷰포트 자동 스크롤
         viewportStartTime = playbackTime - (viewportDuration * 0.25f);
-        Repaint();
-        
+
         // 재생이 끝났는지 확인
         if (!RuntimeAudioController.instance.IsPlaying())
         {
             StopPlayback();
+            return;
         }
-        
-        // 재생 위치 표시
-        DrawPlaybackLine();
+
+        Repaint(); // UI 갱신 요청
     }
 
-    private void DrawPlaybackLine()
+    public void DrawPlaybackLine(Rect viewportRect)
     {
         if (!isPlaying) return;
-        
-        Rect viewportRect = GUILayoutUtility.GetLastRect();
+
         float yPos = GetYPositionForTime(playbackTime, viewportRect);
-        
-        Handles.color = Color.red;
-        Handles.DrawLine(
-            new Vector3(viewportRect.x, yPos),
-            new Vector3(viewportRect.xMax, yPos)
-        );
+
+        // 뷰포트 영역 내에 있을 때만 그리기
+        if (yPos >= viewportRect.y && yPos <= viewportRect.yMax)
+        {
+            Handles.color = Color.red;
+            Handles.DrawLine(
+                new Vector3(viewportRect.x, yPos),
+                new Vector3(viewportRect.xMax, yPos)
+            );
+        }
     }
 
     private void StartPlayback()
     {
         if (chartDataAsset == null || currentMusicClip == null) return;
-        
+
         var audioController = RuntimeAudioController.instance;
         if (audioController == null) return;
 
         isPlaying = true;
         lastPlaybackTime = EditorApplication.timeSinceStartup;
-        
+
         // RuntimeAudioController로 오디오 재생
         audioController.SetClip(currentMusicClip);
         audioController.SetTime(playbackTime);
         audioController.Play(false); // loop = false
-        
+
         EditorApplication.update += UpdatePlayback;
     }
 
@@ -90,5 +92,5 @@ public partial class NoteArrangeWindow
     }
 
     // ChartEditorWindow와 동기화할 때 AudioClip도 가져오기
-   
+
 }
