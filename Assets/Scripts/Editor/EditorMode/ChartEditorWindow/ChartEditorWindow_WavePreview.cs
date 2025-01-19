@@ -21,7 +21,7 @@ public partial class ChartEditorWindow
         float contentHeight = baseHeight * waveZoomY;
 
         // 뷰포트 영역
-        Rect viewRect = EditorGUILayout.GetControlRect(GUILayout.Height(400));
+        Rect viewRect = EditorGUILayout.GetControlRect(GUILayout.Height(600)); // 뷰포트 넓이
         Event e = Event.current;
 
         // 마우스 위치
@@ -79,9 +79,10 @@ public partial class ChartEditorWindow
         }
 
         GUI.EndScrollView();
-
+        /*
         enableNotePlacement = GUILayout.Toggle(enableNotePlacement, "Enable Note Placement?");
         EditorGUILayout.LabelField("(Left= create, Drag=move, Shift+Drag=LN, Right=delete)");
+        */
     }
 
     // ─────────────────────────────────────
@@ -265,36 +266,60 @@ public partial class ChartEditorWindow
 
     private void DrawBpmTimelineGrid(Rect rect, float totalTime)
     {
-        if (!chartDataAsset) return;
+        if (!chartDataAsset || !uiState.showGrid) return;
         var cd = chartDataAsset.chartData;
-        var sorted = cd.bpmData.bpmChanges.OrderBy(x => x.startTimeSec).ToList();
 
-        for(int i = 0; i < sorted.Count; i++)
+        Color measureColor = new Color(1f, 1f, 1f, 0.8f);
+        Color beatColor = new Color(1f, 1f, 1f, 0.4f);
+        Color resolutionColor = new Color(1f, 1f, 1f, 0.1f);
+
+        foreach (var bc in cd.bpmData.bpmChanges.OrderBy(x => x.position.ToTotalTicks()))
         {
-            var bc = sorted[i];
-            float startSec = bc.startTimeSec;
-            float endSec = (i == sorted.Count - 1) ? totalTime : sorted[i+1].startTimeSec;
-            if (endSec < startSec) endSec = startSec;
-
-            DrawVertLine(rect, totalTime, startSec, Color.yellow, 2f);
-
+            float startSec = BeatTimeConverter.ConvertBeatToSeconds(bc.position, cd.bpmData.bpmChanges);
             float secPerBeat = 60f / bc.bpm;
-            float measureDur = secPerBeat * bc.beatsPerMeasure;
-
-            float curSec = startSec;
-            int measureIndex = 0;
-            while(true)
+        
+            // 마디선
+            DrawGridLines(rect, totalTime, startSec, secPerBeat * bc.beatsPerMeasure, 1, measureColor);
+        
+            // 비트선
+            DrawGridLines(rect, totalTime, startSec, secPerBeat * bc.beatsPerMeasure, bc.beatsPerMeasure, beatColor);
+        
+            // Resolution에 따른 세부 선
+            int divPerBeat = GetResolutionDivisions(uiState.resolution) / bc.beatsPerMeasure;
+            if (divPerBeat > 0)
             {
-                curSec = startSec + measureIndex * measureDur;
-                if(curSec >= endSec || curSec > totalTime) break;
-
-                DrawVertLine(rect, totalTime, curSec, new Color(1, 1, 1, 0.3f), 1f);
-                measureIndex++;
+                DrawGridLines(rect, totalTime, startSec, secPerBeat, divPerBeat, resolutionColor);
             }
         }
-        DrawVertLine(rect, totalTime, totalTime, Color.yellow, 2f);
     }
 
+    private int GetResolutionDivisions(NoteResolution resolution)
+    {
+        switch (resolution)
+        {
+            case NoteResolution.Quarter: return 4;  // 마디당 4개
+            case NoteResolution.Eighth: return 8;   // 마디당 8개
+            case NoteResolution.Sixteenth: return 16; // 마디당 16개
+            case NoteResolution.ThirtySecond: return 32; // 마디당 32개
+            default: return 4;
+        }
+    }
+
+    private void DrawGridLines(Rect rect, float totalTime, float startSec, float measureDuration, int divisionsPerMeasure, Color color)
+    {
+        float interval = measureDuration / divisionsPerMeasure;
+    
+        Handles.color = color;
+        float curSec = startSec;
+        while (curSec <= totalTime)
+        {
+            float ratio = curSec / totalTime;
+            float xPos = rect.xMin + (rect.width * ratio);
+            Handles.DrawLine(new Vector3(xPos, rect.yMin), new Vector3(xPos, rect.yMax));
+            curSec += interval;
+        }
+    }
+    
     private void DrawVertLine(Rect rect, float totalTime, float tSec, Color col, float thick)
     {
         float ratio = tSec / totalTime;

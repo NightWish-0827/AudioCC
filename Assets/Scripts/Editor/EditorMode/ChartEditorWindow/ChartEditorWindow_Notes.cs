@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using MyRhythmEditor;
 
 public partial class ChartEditorWindow
 {
-    // ─────────────────────────────────────
-    // Note(노트) 그리기 + 입력 처리
-    // ─────────────────────────────────────
+    // BeatPosition의 상수를 참조하기 위한 필드 추가
+    private const int TICKS_PER_BEAT = BeatPosition.TICKS_PER_BEAT;
+    private const int BEATS_PER_MEASURE = BeatPosition.BEATS_PER_MEASURE;
+    
     private void DrawNotes(Rect rect, float totalTime)
     {
         if (!chartDataAsset) return;
@@ -17,17 +19,21 @@ public partial class ChartEditorWindow
 
         float noteH = 8f;
         float noteW = 6f;
-
+        
         foreach (var n in diff.notes)
         {
-            float timeRatio = n.timeSec / totalTime;
+            float timeRatio = BeatTimeConverter.ConvertBeatToSeconds(n.position, 
+                chartDataAsset.chartData.bpmData.bpmChanges) / totalTime;
+            
             float xPos = rect.xMin + (rect.width * timeRatio);
-
             float laneY = rect.yMin + n.lane * (noteH + 4);
 
-            if (n.isLong && n.length > 0f)
+            if (n.isLong)
             {
-                float endTimeRatio = (n.timeSec + n.length) / totalTime;
+                // 롱노트 길이를 BeatPosition 기반으로 계산
+                BeatPosition endPos = n.position + n.length;
+                float endTimeRatio = BeatTimeConverter.ConvertBeatToSeconds(endPos, 
+                    chartDataAsset.chartData.bpmData.bpmChanges) / totalTime;
                 float endXPos = rect.xMin + (rect.width * endTimeRatio);
 
                 Rect longRect = new Rect(
@@ -64,6 +70,7 @@ public partial class ChartEditorWindow
         var diff = chart.difficulties[selectedDiffIndex];
 
         Event e = Event.current;
+        var bpmChanges = chartDataAsset.chartData.bpmData.bpmChanges;
 
         switch (e.type)
         {
@@ -88,14 +95,15 @@ public partial class ChartEditorWindow
                     {
                         // 일반 좌클릭 / Shift+클릭: 노트 생성
                         Undo.RecordObject(chartDataAsset, "AddNote");
-                        var newNote = new MyRhythmEditor.NoteData
-                        {
-                            timeSec = timePosition,
-                            lane = 0,
-                            noteType = "Normal",
-                            isLong = e.shift,
-                            length = 0f
-                        };
+                        
+                        BeatPosition newPos = BeatTimeConverter.ConvertSecondsToBeat(timePosition, bpmChanges);
+                        // 스냅 적용
+                        newPos = SnapToBeat(newPos);
+
+                        var newNote = e.shift ? 
+                            NoteData.CreateLongNote(newPos, 0) : 
+                            NoteData.CreateNormalNote(newPos, 0);
+
                         diff.notes.Add(newNote);
 
                         if (e.shift)
@@ -110,17 +118,20 @@ public partial class ChartEditorWindow
                         e.Use();
                     }
                 }
-                else if (e.button == 1)
+                if (e.button == 1 && enableNotePlacement)  // 우클릭
                 {
-                    // 우클릭: 노트 제거
-                    var note = FindNoteAtTime(timePosition, diff);
-                    if (note != null)
+                    var noteToDelete = FindNoteAtTime(timePosition, diff);
+                    if (noteToDelete != null)
                     {
-                        Undo.RecordObject(chartDataAsset, "RemoveNote");
-                        diff.notes.Remove(note);
+                        Undo.RecordObject(chartDataAsset, "Delete Note");
+                        diff.notes.Remove(noteToDelete);
                         EditorUtility.SetDirty(chartDataAsset);
                         e.Use();
                     }
+                }
+                else if (e.button == 0 && enableNotePlacement)
+                {
+                    // ... 기존 좌클릭 처리 코드 ...
                 }
                 break;
 
@@ -132,55 +143,77 @@ public partial class ChartEditorWindow
                     if (isDraggingLongTail)
                     {
                         // Shift+드래그: 롱노트 길이 조절
-                        float newLength = timePosition - dragOffsetTime;
-                        if (newLength > 0f)
+                        BeatPosition currentPos = BeatTimeConverter.ConvertSecondsToBeat(timePosition, bpmChanges);
+                        BeatPosition startPos = draggingNote.position;
+                        BeatPosition lengthPos = currentPos - startPos;
+                        
+                        if (lengthPos.ToTotalTicks() > 0)
                         {
                             draggingNote.isLong = true;
-                            draggingNote.length = newLength;
+                            draggingNote.length = lengthPos;
                         }
                     }
                     else if (e.alt)
                     {
                         // Alt+드래그: 노트 시간 이동
-                        draggingNote.timeSec = timePosition;
+                        BeatPosition newPos = BeatTimeConverter.ConvertSecondsToBeat(timePosition, bpmChanges);
+                        draggingNote.position = SnapToBeat(newPos);
                     }
 
                     EditorUtility.SetDirty(chartDataAsset);
                     e.Use();
-                    GUI.changed = true;
                 }
                 break;
 
             case EventType.MouseUp:
                 if (isDraggingNote && draggingNote != null)
                 {
-                    Undo.RecordObject(chartDataAsset, "Finish Move Note");
-
-                    if (!isDraggingLongTail && e.alt)
-                    {
-                        draggingNote.timeSec = timePosition;
-                    }
-
-                    EditorUtility.SetDirty(chartDataAsset);
                     isDraggingNote = false;
                     isDraggingLongTail = false;
                     draggingNote = null;
                     dragOffsetTime = 0f;
                     e.Use();
-                    GUI.changed = true;
                 }
                 break;
         }
     }
 
-    private MyRhythmEditor.NoteData FindNoteAtTime(float time, MyRhythmEditor.DifficultyChart diff)
+    // 스냅 기능 추가
+    private BeatPosition SnapToBeat(BeatPosition pos)
     {
-        float tolerance = 0.1f;
+        int ticksPerDiv = TICKS_PER_BEAT / (int)uiState.resolution;
+    
+        // 전체 틱 수 계산
+        int totalTicks = pos.ToTotalTicks();
+    
+        // 가장 가까운 division에 스냅
+        int snappedTicks = Mathf.RoundToInt((float)totalTicks / ticksPerDiv) * ticksPerDiv;
+    
+        // 정규화된 BeatPosition 반환
+        return BeatPosition.FromTotalTicks(snappedTicks);
+    }
+
+    private NoteData FindNoteAtTime(float time, DifficultyChart diff)
+    {
+        var bpmChanges = chartDataAsset.chartData.bpmData.bpmChanges;
+        BeatPosition targetPos = BeatTimeConverter.ConvertSecondsToBeat(time, bpmChanges);
+        
+        float tolerance = BeatTimeConverter.ConvertBeatToSeconds(
+            new BeatPosition(0, 0, 1), bpmChanges); // 1틱 만큼의 시간
+
         return diff.notes.FirstOrDefault(n =>
-            !n.isLong ?
-            Mathf.Abs(n.timeSec - time) < tolerance :
-            time >= n.timeSec - tolerance &&
-            time <= n.timeSec + n.length + tolerance
-        );
+        {
+            if (!n.isLong)
+            {
+                float noteTime = BeatTimeConverter.ConvertBeatToSeconds(n.position, bpmChanges);
+                return Mathf.Abs(noteTime - time) < tolerance;
+            }
+            else
+            {
+                float startTime = BeatTimeConverter.ConvertBeatToSeconds(n.position, bpmChanges);
+                float endTime = BeatTimeConverter.ConvertBeatToSeconds(n.position + n.length, bpmChanges);
+                return time >= startTime - tolerance && time <= endTime + tolerance;
+            }
+        });
     }
 }
